@@ -81,3 +81,16 @@ jobs:
       - name: Run tests
         run: |
           pytest tests/ --deselect=tests/notebooks -n auto
+        
+      - name: Run benchmarks
+        run: |
+          pytest tests/benchmarks --benchmark-json tests/benchmarks/pytest_benchmarks_output.json
+      
+      - name: Store benchmark result
+        uses: rhysd/github-action-benchmark@v1
+        with:
+          name: Pytest-benchmarks
+          tool: "pytest"
+          output-file-path: tests/benchmarks/pytest_benchmarks_output.json
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: true
