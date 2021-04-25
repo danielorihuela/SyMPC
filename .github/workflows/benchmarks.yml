@@ -49,7 +49,8 @@ jobs:
 
       - name: Run benchmarks
         run: |
-          pytest tests/benchmarks/bench_test.py --benchmark-json tests/benchmarks/pytest_benchmarks_output.json
+          pytest tests/benchmarks/ --benchmark-json tests/benchmarks/pytest_benchmarks_output.json
+          
       - name: Store benchmark result
         uses: rhysd/github-action-benchmark@v1
         with:
