@@ -19,7 +19,7 @@ class ConvNet(sy.Module):
 
     def __init__(self, torch_ref):
         """Initialize convolutional network.
-        
+
         Arguments:
             torch_ref: Reference to the torch library
         """

@@ -17,6 +17,7 @@ def get_clients() -> Callable[[int], List[Any]]:
     Returns:
         Callable[[int], List[Any]]: List of clients
     """
+
     def _helper_get_clients(nr_clients: int) -> List[Any]:
         return [
             sy.VirtualMachine(name=f"P_{i}").get_root_client()
