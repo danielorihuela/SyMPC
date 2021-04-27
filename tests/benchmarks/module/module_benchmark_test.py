@@ -4,6 +4,7 @@ from typing import Callable
 from typing import List
 
 # third party
+import numpy as np
 import syft as sy
 import torch
 
@@ -32,11 +33,6 @@ class ConvNet(sy.Module):
 
 
 def run_conv_model(get_clients: Callable[[int], List[Any]]):
-    """Simple convolutional network used for benchmarking.
-
-    Args:
-        get_clients: Callable[[int], List[Any]]: function which returns a list of clients
-    """
     model = ConvNet(torch)
 
     clients = get_clients(2)
@@ -55,6 +51,12 @@ def run_conv_model(get_clients: Callable[[int], List[Any]]):
     expected = model(x_secret)
 
     res_mpc = mpc_model(x_mpc)
+    assert isinstance(res_mpc, MPCTensor)
 
     res = res_mpc.reconstruct()
     expected = expected.detach().numpy()
+    assert np.allclose(res, expected, atol=1e-3)
+
+
+def test_run_conv_model(benchmark, get_clients: Callable[[int], List[Any]]):
+    benchmark(run_conv_model, get_clients)
