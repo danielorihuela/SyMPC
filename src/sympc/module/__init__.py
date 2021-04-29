@@ -1,5 +1,6 @@
-"""Add the share/reconstruct method to the Syft Module defined here:
+"""Implementations of the different neural network layers.
 
+Add the share/reconstruct method to the Syft Module defined here:
 https://github.com/OpenMined/PySyft/blob/dev/src/syft/lib/torch/module.py
 """
 
@@ -27,6 +28,14 @@ MAP_TORCH_TO_SYMPC.update({f"{k}Pointer": v for k, v in MAP_TORCH_TO_SYMPC.items
 
 
 def share(_self, session: Session) -> sy.Module:
+    """Share remote state dictionary between the parties of the session.
+
+    Arguments:
+        session: Session holding different information like the parties and the computed data.
+
+    Returns:
+        Neural network module with the possibility to share remote state dictionary
+    """
     mpc_module = copy.copy(_self)
 
     mpc_module._modules = OrderedDict()
@@ -43,7 +52,7 @@ def share(_self, session: Session) -> sy.Module:
     return mpc_module
 
 
-def reconstruct(_self):
+def __reconstruct(_self) -> sy.Module:
     syft_module = copy.copy(_self)
 
     # For this we will need to fetch the syft_module locally
@@ -61,9 +70,9 @@ def reconstruct(_self):
     return syft_module
 
 
-get = reconstruct
+get = __reconstruct
 
-for method in {share, reconstruct, get}:
+for method in {share, __reconstruct, get}:
     if getattr(sy.Module, method.__name__, None) is not None:
         raise ValueError(f"Method {method.__name__} already exists in the sy.Module")
 
