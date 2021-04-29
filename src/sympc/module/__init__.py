@@ -53,7 +53,7 @@ def share(_self, session: Session) -> sy.Module:
 
 
 def reconstruct(_self) -> sy.Module:
-    """Get back the shares from all the parties and reconstruct the underlying value
+    """Get back the shares from all the parties and reconstruct the underlying value.
 
     Returns:
         Neural network module with the secret reconstructed
