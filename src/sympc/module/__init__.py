@@ -52,7 +52,12 @@ def share(_self, session: Session) -> sy.Module:
     return mpc_module
 
 
-def __reconstruct(_self) -> sy.Module:
+def reconstruct(_self) -> sy.Module:
+    """Get back the shares from all the parties and reconstruct the underlying value
+
+    Returns:
+        Neural network module with the secret reconstructed
+    """
     syft_module = copy.copy(_self)
 
     # For this we will need to fetch the syft_module locally
@@ -70,9 +75,9 @@ def __reconstruct(_self) -> sy.Module:
     return syft_module
 
 
-get = __reconstruct
+get = reconstruct
 
-for method in {share, __reconstruct, get}:
+for method in {share, reconstruct, get}:
     if getattr(sy.Module, method.__name__, None) is not None:
         raise ValueError(f"Method {method.__name__} already exists in the sy.Module")
 
