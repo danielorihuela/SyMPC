@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1620064680592,
+  "lastUpdate": 1620148065427,
   "repoUrl": "https://github.com/danielorihuela/SyMPC",
   "entries": {
     "Pytest-benchmarks": [
@@ -93,6 +93,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.13173060105066514",
             "extra": "mean: 3.8443331688000058 sec\nrounds: 5"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "16245436+jmaunon@users.noreply.github.com",
+            "name": "jmaunon",
+            "username": "jmaunon"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c47d1cb4ace446de0a295e1b8ddab1041f9d7c91",
+          "message": "Add auto-flake (#139)\n\n* Add auto-flake\r\n\r\n* Add --recursive and update GA test\r\n\r\n* Add foo file that will be deleted after testing\r\n\r\n* Delete foo.py\r\n\r\n* Add all-unused-imports\r\n\r\nCo-authored-by: George-Cristian Muraru <murarugeorgec@gmail.com>",
+          "timestamp": "2021-05-03T19:39:42+01:00",
+          "tree_id": "4365619d6123f75727e1b3db503427c0edd4d833",
+          "url": "https://github.com/danielorihuela/SyMPC/commit/c47d1cb4ace446de0a295e1b8ddab1041f9d7c91"
+        },
+        "date": 1620148064930,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "benchmarks/module/module_benchmark_test.py::test_run_conv_model",
+            "value": 0.2447269633081519,
+            "unit": "iter/sec",
+            "range": "stddev: 0.1744069647497607",
+            "extra": "mean: 4.0861864441999955 sec\nrounds: 5"
           }
         ]
       }
