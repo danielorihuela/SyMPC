@@ -76,3 +76,57 @@ jobs:
       - name: Run tests
         run: |
           pytest tests/ --deselect=tests/notebooks -n auto
+
+  python-tests-windows:
+    runs-on: windows-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Upgrade pip
+        run: |
+          pip install --upgrade --user pip
+      - name: Get pip cache dir
+        id: pip-cache
+        run: |
+          echo "::set-output name=dir::$(pip cache dir)"
+      - name: pip cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.pip-cache.outputs.dir }}
+          key: ${{ runner.os }}-pip-py${{ matrix.python-version }}-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-py${{ matrix.python-version }}-
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.dev.txt
+          pip install -e .
+
+      - id: file_changes  # get changed files.
+        uses: trilom/file-changes-action@v1.2.3
+        with:
+          output: ' '
+
+      - uses: pre-commit/action@v2.0.0
+        with:
+          extra_args: --files ${{ steps.file_changes.outputs.files}}  # apply only to changed files.
+
+      - name: Check docstring coverage
+        run: |
+          interrogate -mvp src/ -f 80
+
+      - name: Scan for security issues
+        run: |
+          bandit -r src
+
+      - name: Run tests
+        run: |
+          pytest tests/ --deselect=tests/notebooks -n auto
