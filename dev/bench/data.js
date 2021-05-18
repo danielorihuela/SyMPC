@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1620682336791,
+  "lastUpdate": 1621373356434,
   "repoUrl": "https://github.com/danielorihuela/SyMPC",
   "entries": {
     "Pytest-benchmarks": [
@@ -186,6 +186,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.10261020653881152",
             "extra": "mean: 4.264937826800002 sec\nrounds: 5"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "murarugeorgec@gmail.com",
+            "name": "George-Cristian Muraru",
+            "username": "gmuraru"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "63cf891cd91634b4c049dea12d9c28eece7d60ad",
+          "message": "Add training POC (#161)",
+          "timestamp": "2021-05-18T00:22:21+01:00",
+          "tree_id": "ca5e3198b99a3f21e748d58d2c47fda7ed9be9dd",
+          "url": "https://github.com/danielorihuela/SyMPC/commit/63cf891cd91634b4c049dea12d9c28eece7d60ad"
+        },
+        "date": 1621373355925,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "benchmarks/module/module_benchmark_test.py::test_run_conv_model",
+            "value": 0.2530602521889253,
+            "unit": "iter/sec",
+            "range": "stddev: 0.1315566460501798",
+            "extra": "mean: 3.9516280859999995 sec\nrounds: 5"
           }
         ]
       }
