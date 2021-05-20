@@ -61,7 +61,7 @@ jobs:
       - id: file_changes  # get changed files.
         uses: jitterbit/get-changed-files@v1
         with:
-          output: space-delimited
+          format: space-delimited
 
       - uses: pre-commit/action@v2.0.0
         with:
