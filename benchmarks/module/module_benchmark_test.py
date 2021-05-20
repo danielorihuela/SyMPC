@@ -9,7 +9,7 @@ from conv_model import run_conv_model
 
 
 def test_run_conv_model(benchmark, get_clients: Callable[[int], List[Any]]):
-    """Benchmark simple convolutional network.
+    """Benchmark simple convolutional networks.
 
     Arguments:
         benchmark: Fixture that benchmarks any function passed

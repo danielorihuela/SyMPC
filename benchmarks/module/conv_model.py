@@ -15,7 +15,7 @@ from sympc.tensor import MPCTensor
 
 
 class ConvNet(sy.Module):
-    """Simple convolutional network."""
+    """Simple convolutional networks."""
 
     def __init__(self, torch_ref):
         """Initialize convolutional network.
