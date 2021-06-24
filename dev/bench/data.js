@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1624553448921,
+  "lastUpdate": 1624554091664,
   "repoUrl": "https://github.com/danielorihuela/SyMPC",
   "entries": {
     "Pytest-benchmarks": [
@@ -310,6 +310,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.13813403218045578",
             "extra": "mean: 6.984873558000004 sec\nrounds: 5"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "danielorihuelarodriguez@gmail.com",
+            "name": "dani",
+            "username": "danielorihuela"
+          },
+          "committer": {
+            "email": "danielorihuelarodriguez@gmail.com",
+            "name": "dani",
+            "username": "danielorihuela"
+          },
+          "distinct": true,
+          "id": "d8e7db19e1f625be4d865807da211db5c8d577c4",
+          "message": "asfd",
+          "timestamp": "2021-06-24T18:57:40+02:00",
+          "tree_id": "efc9cce13cde67fc301d2d49072b0ccbd8063376",
+          "url": "https://github.com/danielorihuela/SyMPC/commit/d8e7db19e1f625be4d865807da211db5c8d577c4"
+        },
+        "date": 1624554090465,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "benchmarks/module/module_benchmark_test.py::test_run_inference_conv_model",
+            "value": 0.11745587148241314,
+            "unit": "iter/sec",
+            "range": "stddev: 0.09215160340556725",
+            "extra": "mean: 8.513835769799993 sec\nrounds: 5"
           }
         ]
       }
