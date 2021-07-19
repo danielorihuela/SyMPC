@@ -61,6 +61,28 @@ If we decided to use docker, we would need to run the image and publish the jupy
 Finally, we would need to copy the url shown in the docker to our browser.
 
 
+Supported protocols
+###################
+
+SyMPC supports the following protocols.
+
+.. table::
+
+    +--------------+------------------------+-----------------+-----------------------+
+    | **Protocol** | **Security Guarantee** | **Operation**   | **Number of parties** |
+    +==============+========================+=================+=======================+
+    | ABY3         | Semi honest            | Truncate        | n = 3                 |
+    +--------------+------------------------+-----------------+-----------------------+
+    | Falcon       | Semi honest            | Multiplication  | n = 3                 |
+    +--------------+------------------------+-----------------+-----------------------+
+    | Falcon       | Malicious              | Multiplication  | n = 3                 |
+    +--------------+------------------------+-----------------+-----------------------+
+    | SPDZ         | Semi honest            | Multiplication  | n > 2                 |
+    +--------------+------------------------+-----------------+-----------------------+
+    | SPDZ         | Semi honest            | Public Division | n > 2                 |
+    +--------------+------------------------+-----------------+-----------------------+
+
+
 Contributing
 ############
 
